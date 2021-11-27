@@ -2,11 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import Input from "./Input";
+import TestForm from "./TestForm";
+import Form from "./Form";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Hello World</h1>
+    {/* <Input /> */}
+    <Form />
+    {/* <TestForm /> */}
     <App />
   </React.StrictMode>,
   document.getElementById("root")
