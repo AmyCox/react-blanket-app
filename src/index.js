@@ -12,7 +12,7 @@ ReactDOM.render(
     {/* <Input /> */}
     <Form />
     {/* <TestForm /> */}
-    <App />
+    {/* <App /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
