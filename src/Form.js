@@ -8,8 +8,9 @@ const initialValues = {
   height: "",
 };
 
-export default function Form(rounds) {
+export default function Form() {
   const [values, setValues] = useState(initialValues);
+  const rounds = values.rounds;
 
   //handle ALL inputs with a single onChange handler
   const handleInputChange = (e) => {
@@ -76,7 +77,7 @@ export default function Form(rounds) {
       <button onClick={handleSubmit}>SUBMIT</button>
       <button onClick={reset}>RESET</button>
 
-      {values.rounds > 0 ? <ColourPicker /> : null}
+      {values.rounds > 0 ? <ColourPicker rounds={rounds} /> : null}
     </>
   );
 }
