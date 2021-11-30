@@ -9,9 +9,6 @@ const initialValues = {
 
 export default function Form() {
   const [values, setValues] = useState(initialValues);
-  const [newRounds, setRounds] = useState("");
-  const [newWidth, setWidth] = useState("");
-  const [newHeight, setHeight] = useState("");
 
   //handle ALL inputs with a single onChange handler
   const handleInputChange = (e) => {
@@ -29,22 +26,19 @@ export default function Form() {
   };
 
   const reset = () => {
-    setRounds("");
-    setWidth("");
-    setHeight("");
+    return setValues(initialValues);
   };
 
   function handleSubmit(event) {
     alert(
       "A round value was submitted: " +
-        newRounds +
-        typeof newRounds +
+        values.rounds +
         " " +
         "A width value was submitted: " +
-        newWidth +
+        values.width +
         " " +
         "A height value was submitted: " +
-        newHeight
+        values.height
     );
     event.preventDefault();
   }
@@ -53,33 +47,30 @@ export default function Form() {
     <>
       <h1>Blanket App</h1>
       <form>
-        {/* <label>
-          Rounds: */}
-        <input
-          value={values.rounds}
-          onChange={handleInputChange}
-          name="rounds" //IMPORTANT - need to add a name attribute to inputs so we can set a dynamic name property key
-          label="Rounds"
-        />
-        {/* </label> */}
-        {/* <label>
-          Width: */}
-        <input
-          value={values.width}
-          onChange={handleInputChange}
-          name="width" //IMPORTANT
-          label="Width"
-        />
-        {/* </label> */}
-        {/* <label> */}
-        {/* Height */}
-        <input
-          value={values.height}
-          onChange={handleInputChange}
-          name="height" //IMPORTANT
-          label="Height"
-        />
-        {/* </label> */}
+        <label>
+          Rounds:
+          <input
+            value={values.rounds}
+            onChange={handleInputChange}
+            name="rounds" //IMPORTANT - need to add a name attribute to inputs so we can set a dynamic name property key
+          />
+        </label>
+        <label>
+          Width:
+          <input
+            value={values.width}
+            onChange={handleInputChange}
+            name="width" //IMPORTANT
+          />
+        </label>
+        <label>
+          Height
+          <input
+            value={values.height}
+            onChange={handleInputChange}
+            name="height" //IMPORTANT
+          />
+        </label>
       </form>
       <button onClick={handleSubmit}>SUBMIT</button>
       <button onClick={reset}>RESET</button>
