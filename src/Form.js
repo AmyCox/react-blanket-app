@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ColourPicker from "./ColourPicker";
 
 //create object literal for default values to all input fields
 const initialValues = {
@@ -7,7 +8,7 @@ const initialValues = {
   height: "",
 };
 
-export default function Form() {
+export default function Form(rounds) {
   const [values, setValues] = useState(initialValues);
 
   //handle ALL inputs with a single onChange handler
@@ -74,6 +75,8 @@ export default function Form() {
       </form>
       <button onClick={handleSubmit}>SUBMIT</button>
       <button onClick={reset}>RESET</button>
+
+      {values.rounds > 0 ? <ColourPicker /> : null}
     </>
   );
 }

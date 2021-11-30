@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import Input from "./Input";
 import TestForm from "./TestForm";
+import ColourPicker from "./ColourPicker";
 import Form from "./Form";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,6 +14,7 @@ ReactDOM.render(
     <Form />
     {/* <TestForm /> */}
     {/* <App /> */}
+  
   </React.StrictMode>,
   document.getElementById("root")
 );
