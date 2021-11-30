@@ -8,7 +8,6 @@ const initialValues = {
   height: "",
 };
 
-
 export default function Form() {
   const [values, setValues] = useState(initialValues);
   const rounds = values.rounds;
@@ -50,6 +49,14 @@ export default function Form() {
     <>
       <h1>Blanket App</h1>
       <form>
+        <label>
+          Number of colours:
+          <input
+            value={values.numberOfColours}
+            onChange={handleInputChange}
+            name="numberOfColours"
+          />{" "}
+        </label>
         <label>
           Rounds:
           <input
