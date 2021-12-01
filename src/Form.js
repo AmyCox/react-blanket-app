@@ -49,6 +49,7 @@ export default function Form() {
   return (
     <>
       <h1>Blanket App</h1>
+
       <form>
         <label>
           Number of colours:
@@ -86,7 +87,9 @@ export default function Form() {
       <button onClick={handleSubmit}>SUBMIT</button>
       <button onClick={reset}>RESET</button>
 
-      {values.numberOfColours > 0 ? <ColourPicker colours={colours} /> : null}
+      {values.numberOfColours > 0 ? (
+        <ColourPicker style={{ marginLeft: 25 }} colours={colours} />
+      ) : null}
     </>
   );
 }

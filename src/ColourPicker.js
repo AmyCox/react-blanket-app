@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { ChromePicker } from "react-color";
 
@@ -8,7 +8,11 @@ import { ChromePicker } from "react-color";
 
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button
+      className="square"
+      onClick={props.onClick}
+      style={{ background: props.color }}
+    >
       {props.value}
     </button>
   );
@@ -16,20 +20,27 @@ function Square(props) {
 export default function ColourPicker(props) {
   const colours = parseInt(props.colours);
 
+  const [color, setColor] = useState("#fff");
+
   //   const squares = [...Array(rounds)].map((e, i) => (
   //     <Square key={i} value={e} />
   //   ));
   //   console.log("This is the squares", squares);
 
   const squares = [...Array(colours)].map((e, i) => (
-    <Square key={i} value={e} />
+    <Square key={i} value={e} color={color} />
   ));
   console.log(squares);
   return (
     <>
-      <h1>Colour Picker</h1>
+      <h1 style={{ color }}>Colour Picker</h1>
       <h2>{colours}</h2>
-      <ChromePicker />
+      <ChromePicker
+        color={color}
+        onChangeComplete={(color) => {
+          setColor(color.hex);
+        }}
+      />
       {squares}
     </>
   );
