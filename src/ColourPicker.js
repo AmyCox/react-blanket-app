@@ -14,22 +14,21 @@ function Square(props) {
   );
 }
 export default function ColourPicker(props) {
-  const rounds = parseInt(props.rounds);
-  console.log("Rounds", rounds, typeof rounds);
+  const colours = parseInt(props.colours);
 
   //   const squares = [...Array(rounds)].map((e, i) => (
   //     <Square key={i} value={e} />
   //   ));
   //   console.log("This is the squares", squares);
 
-  const squares = [...Array(rounds)].map((e, i) => (
+  const squares = [...Array(colours)].map((e, i) => (
     <Square key={i} value={e} />
   ));
   console.log(squares);
   return (
     <>
       <h1>Colour Picker</h1>
-      <h2>{rounds}</h2>
+      <h2>{colours}</h2>
       <ChromePicker />
       {squares}
     </>
