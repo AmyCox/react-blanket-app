@@ -8,19 +8,35 @@ import { ChromePicker } from "react-color";
 
 function Square(props) {
   return (
-    <button
+    <div
       className="square"
       onClick={props.onClick}
       style={{ background: props.color }}
     >
       {props.value}
-    </button>
+    </div>
   );
 }
 export default function ColourPicker(props) {
   const colours = parseInt(props.colours);
 
   const [color, setColor] = useState("#fff");
+
+  const fillArray = [];
+  let len = colours;
+  for (let i = 0; i < len; i++) {
+    fillArray.push({
+      id: i,
+      color: color,
+    });
+  }
+
+  console.log("This is the fill array", fillArray);
+
+  // const colorArray = new Array(colours + 1).fill({
+  //   id: colorArray[i],
+  //   color: color,
+  // });
 
   //   const squares = [...Array(rounds)].map((e, i) => (
   //     <Square key={i} value={e} />
