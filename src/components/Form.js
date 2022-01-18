@@ -13,6 +13,11 @@ export default function Form() {
   const [values, setValues] = useState(initialValues);
   const colours = values.numberOfColours;
 
+  const moreThanFive = colours > 5;
+
+  if (moreThanFive)
+    throw new Error("You must select the number of colours between 1-5");
+
   //handle ALL inputs with a single onChange handler
   const handleInputChange = (e) => {
     // const name = e.target.name

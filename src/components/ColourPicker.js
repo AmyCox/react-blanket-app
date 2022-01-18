@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import "./index.css";
 import { ChromePicker } from "react-color";
-
-// function generateColourPickerInputs(rounds) {
-//     return
-// }
 
 function Square(props) {
   return (
@@ -13,7 +8,7 @@ function Square(props) {
       onClick={props.onClick}
       style={{ background: props.color }}
     >
-      {props.value}
+      <p>{props.value}</p>
     </div>
   );
 }
