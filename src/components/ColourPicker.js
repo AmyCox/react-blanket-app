@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
+import Button from "@material-ui/core/Button"
+
 
 function Square(props) {
   return (
@@ -12,19 +14,29 @@ function Square(props) {
     </div>
   );
 }
-export default function ColourPicker(props) {
-  const colours = parseInt(props.colours);
 
-  const [color, setColor] = useState("#fff");
+export default function ColourPicker(props) {
+  const numberOfColours = parseInt(props.colours);
+
+  console.log("COLOURS VARIABLE", numberOfColours);
+  const [color, setColor] = useState("#FFF");
 
   const fillArray = [];
-  let len = colours;
+  let len = numberOfColours;
   for (let i = 0; i < len; i++) {
     fillArray.push({
       id: i,
-      color: color,
+      color: null,
     });
   }
+
+  console.log("Fill array length", fillArray);
+
+  // if (fillArray[i].color == null) {
+  //   return fillArray[i].color === color;
+  // }
+
+  console.log("YOLO", color);
 
   console.log("This is the fill array", fillArray);
 
@@ -33,26 +45,30 @@ export default function ColourPicker(props) {
   //   color: color,
   // });
 
-  //   const squares = [...Array(rounds)].map((e, i) => (
-  //     <Square key={i} value={e} />
-  //   ));
-  //   console.log("This is the squares", squares);
-
-  const squares = [...Array(colours)].map((e, i) => (
-    <Square key={i} value={e} color={color} />
-  ));
-  console.log(squares);
+  // const squares = [...Array(colours)].map((e, i) => (
+  //   <Square key={i} value={e} color={color} />
+  // ));
   return (
     <>
       <h1 style={{ color }}>Colour Picker</h1>
-      <h2>{colours}</h2>
+      <h2>{numberOfColours}</h2>
       <ChromePicker
         color={color}
         onChangeComplete={(color) => {
           setColor(color.hex);
         }}
       />
-      {squares}
+      <Button color="primary">SUBMIT</Button>
     </>
   );
 }
+
+// I want to select the number of colours
+
+// once the number of colors has been inputted I want the color picker to show
+
+// I want to use the color picker to set the state of the color
+
+// when I click save colour I want a square with a background color of the color I selected to render
+
+// I can only pick the number of colors that I inputted.
