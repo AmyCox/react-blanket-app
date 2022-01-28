@@ -44,8 +44,8 @@ export default function ColourPicker(props) {
     console.log("First selected", selected);
     console.log("CHECK THE LENGTH OF THE ARRAY", selected.length);
     if (selected.length < numberOfColours) {
+      console.log("GET'S HERE");
       selected.push(color);
-      console.log("SELECTED AFTER PUSH", selected);
     }
     console.log("second selected", selected);
     return selected;
@@ -62,7 +62,7 @@ export default function ColourPicker(props) {
         }}
       />
       <Button
-        onClick={() => submitColor({ color }, { numberOfColours })}
+        onClick={() => submitColor(color, numberOfColours)}
         color="primary"
       >
         SUBMIT
