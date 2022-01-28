@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
-import Button from "@material-ui/core/Button"
-
+import Button from "@material-ui/core/Button";
 
 function Square(props) {
   return (
@@ -21,24 +20,13 @@ export default function ColourPicker(props) {
   console.log("COLOURS VARIABLE", numberOfColours);
   const [color, setColor] = useState("#FFF");
 
-  const fillArray = [];
   let len = numberOfColours;
-  for (let i = 0; i < len; i++) {
-    fillArray.push({
-      id: i,
-      color: null,
-    });
-  }
 
-  console.log("Fill array length", fillArray);
-
-  // if (fillArray[i].color == null) {
-  //   return fillArray[i].color === color;
-  // }
+  console.log(len);
 
   console.log("YOLO", color);
 
-  console.log("This is the fill array", fillArray);
+  // console.log("This is the fill array", fillArray);
 
   // const colorArray = new Array(colours + 1).fill({
   //   id: colorArray[i],
@@ -48,6 +36,21 @@ export default function ColourPicker(props) {
   // const squares = [...Array(colours)].map((e, i) => (
   //   <Square key={i} value={e} color={color} />
   // ));
+
+  function submitColor(color, numberOfColours) {
+    console.log("COLOR", color);
+    console.log("NUMBER OF COLOURS", numberOfColours);
+    let selected = [];
+    console.log("First selected", selected);
+    console.log("CHECK THE LENGTH OF THE ARRAY", selected.length);
+    if (selected.length < numberOfColours) {
+      selected.push(color);
+      console.log("SELECTED AFTER PUSH", selected);
+    }
+    console.log("second selected", selected);
+    return selected;
+  }
+
   return (
     <>
       <h1 style={{ color }}>Colour Picker</h1>
@@ -58,7 +61,12 @@ export default function ColourPicker(props) {
           setColor(color.hex);
         }}
       />
-      <Button color="primary">SUBMIT</Button>
+      <Button
+        onClick={() => submitColor({ color }, { numberOfColours })}
+        color="primary"
+      >
+        SUBMIT
+      </Button>
     </>
   );
 }
