@@ -19,12 +19,14 @@ export default function ColourPicker(props) {
 
   console.log("COLOURS VARIABLE", numberOfColours);
   const [color, setColor] = useState("#FFF");
+  const [colorArray, setColorArray] = useState([]);
 
   let len = numberOfColours;
 
   console.log(len);
 
   console.log("YOLO", color);
+  console.log("This is the colorArray", colorArray);
 
   // console.log("This is the fill array", fillArray);
 
@@ -37,20 +39,6 @@ export default function ColourPicker(props) {
   //   <Square key={i} value={e} color={color} />
   // ));
 
-  function submitColor(color, numberOfColours) {
-    console.log("COLOR", color);
-    console.log("NUMBER OF COLOURS", numberOfColours);
-    let selected = [];
-    console.log("First selected", selected);
-    console.log("CHECK THE LENGTH OF THE ARRAY", selected.length);
-    if (selected.length < numberOfColours) {
-      console.log("GET'S HERE");
-      selected.push(color);
-    }
-    console.log("second selected", selected);
-    return selected;
-  }
-
   return (
     <>
       <h1 style={{ color }}>Colour Picker</h1>
@@ -62,7 +50,7 @@ export default function ColourPicker(props) {
         }}
       />
       <Button
-        onClick={() => submitColor(color, numberOfColours)}
+        onClick={() => setColorArray((colorArray) => [...colorArray, color])}
         color="primary"
       >
         SUBMIT
