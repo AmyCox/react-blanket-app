@@ -49,12 +49,14 @@ export default function ColourPicker(props) {
           setColor(color.hex);
         }}
       />
-      <Button
-        onClick={() => setColorArray((colorArray) => [...colorArray, color])}
-        color="primary"
-      >
-        SUBMIT
-      </Button>
+      {colorArray.length < numberOfColours ? (
+        <Button
+          onClick={() => setColorArray((colorArray) => [...colorArray, color])}
+          color="primary"
+        >
+          SUBMIT
+        </Button>
+      ) : null}
     </>
   );
 }
