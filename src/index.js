@@ -49,7 +49,7 @@ ReactDOM.render(
       <Form />
     </ErrorBoundary>
     {/* <TestForm /> */}
-    {/* <App /> */}
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

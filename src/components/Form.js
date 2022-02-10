@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ColourPicker from "./ColourPicker";
+import Grid from "./Grid";
 
 //create object literal for default values to all input fields
 const initialValues = {
@@ -93,8 +94,9 @@ export default function Form() {
       <button onClick={reset}>RESET</button>
 
       {values.numberOfColours > 0 ? (
-        <ColourPicker style={{ marginLeft: 25 }} colours={colours} />
+        <ColourPicker style={{ marginLeft: 40 }} colours={colours} />
       ) : null}
+      <Grid numberOfRounds={values.rounds} />
     </>
   );
 }
