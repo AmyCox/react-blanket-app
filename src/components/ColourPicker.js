@@ -57,6 +57,12 @@ export default function ColourPicker(props) {
           SUBMIT
         </Button>
       ) : null}
+
+      <div>
+        {colorArray.map((x, idx) => (
+          <Square key={idx} style={{ background: x }} />
+        ))}
+      </div>
     </>
   );
 }
