@@ -8,6 +8,7 @@ function Square(props) {
       className="square"
       onClick={props.onClick}
       style={{ background: props.color }}
+      color={props.color}
     >
       <p>{props.value}</p>
     </div>
@@ -60,7 +61,7 @@ export default function ColourPicker(props) {
 
       <div>
         {colorArray.map((x, idx) => (
-          <Square key={idx} style={{ background: x }} />
+          <Square key={idx} color={colorArray[idx]} />
         ))}
       </div>
     </>
