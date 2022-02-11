@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ColourPicker from "./ColourPicker";
 import Grid from "./Grid";
+import "./../App.css";
 
 //create object literal for default values to all input fields
 const initialValues = {
@@ -54,49 +55,78 @@ export default function Form() {
 
   return (
     <>
-      <h1>Blanket App</h1>
+      <div className="formContainer">
+        <div className="headingContainer">
+          <h1>Blanket App</h1>
+        </div>
 
-      <form>
-        <label>
-          Number of colours:
-          <input
-            value={values.numberOfColours}
-            onChange={handleInputChange}
-            name="numberOfColours"
-          />{" "}
-        </label>
-        <label>
-          Rounds:
-          <input
-            value={values.rounds}
-            onChange={handleInputChange}
-            name="rounds" //IMPORTANT - need to add a name attribute to inputs so we can set a dynamic name property key
-          />
-        </label>
-        <label>
-          Width:
-          <input
-            value={values.width}
-            onChange={handleInputChange}
-            name="width" //IMPORTANT
-          />
-        </label>
-        <label>
-          Height
-          <input
-            value={values.height}
-            onChange={handleInputChange}
-            name="height" //IMPORTANT
-          />
-        </label>
-      </form>
-      <button onClick={handleSubmit}>SUBMIT</button>
-      <button onClick={reset}>RESET</button>
+        <div className="formInputContainer">
+          <form>
+            <div className="formInput">
+              <label>
+                Number of colours:
+                <input
+                  value={values.numberOfColours}
+                  onChange={handleInputChange}
+                  name="numberOfColours"
+                  style={{ marginLeft: 30 }}
+                />{" "}
+              </label>
+            </div>
+            <div className="formInput">
+              <label>
+                Rounds:
+                <input
+                  style={{ marginLeft: 111 }}
+                  value={values.rounds}
+                  onChange={handleInputChange}
+                  name="rounds" //IMPORTANT - need to add a name attribute to inputs so we can set a dynamic name property key
+                />
+              </label>
+            </div>
+            <div className="formInput">
+              <label>
+                Width:
+                <input
+                  style={{ marginLeft: 122 }}
+                  value={values.width}
+                  onChange={handleInputChange}
+                  name="width" //IMPORTANT
+                />
+              </label>
+            </div>
+            <div className="formInput">
+              <label>
+                Height:
+                <input
+                  style={{ marginLeft: 118 }}
+                  value={values.height}
+                  onChange={handleInputChange}
+                  name="height" //IMPORTANT
+                />
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <div className="submitContainer">
+          <button className="buttonStyle" onClick={handleSubmit}>
+            SUBMIT
+          </button>
+          <button className="buttonStyle" onClick={reset}>
+            RESET
+          </button>
+        </div>
+      </div>
 
       {values.numberOfColours > 0 ? (
         <ColourPicker style={{ marginLeft: 40 }} colours={colours} />
       ) : null}
-      <Grid numberOfRounds={values.rounds} />
+      <Grid
+        numberOfRounds={values.rounds}
+        width={values.width}
+        height={values.width}
+      />
     </>
   );
 }

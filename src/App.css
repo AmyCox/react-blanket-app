@@ -28,6 +28,48 @@
   color: #61dafb;
 }
 
+.formContainer {
+  display: flex;
+  height: 100vh;
+  /* border-color: hotpink;
+  border-width: 15px;
+  border-style: solid; */
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.headingContainer {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+.formInputContainer {
+  flex-direction: column;
+  display: flex;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.submitContainer {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonStyle {
+  border-radius: 20%;
+  height: 30px;
+  width: 80px;
+  background: white;
+  margin-left: 60px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
